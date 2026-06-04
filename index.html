@@ -732,4 +732,40 @@ function renderAttractions() {
   renderList(VEGAS_ATTRACTIONS, 'attr-vegas', 'vegas_');
 }
 
-fu
+function toggleAttr(key, el) {
+  const isDone = !attrState[key];
+  attrState[key] = isDone;
+  el.classList.toggle('done', isDone);
+  el.textContent = isDone ? '✓' : '';
+  attDoc.set({ [key]: isDone }, { merge: true });
+}
+
+// Real-time listener — updates all friends instantly
+attDoc.onSnapshot(doc => {
+  attrState = doc.exists ? doc.data() : {};
+  renderAttractions();
+}, err => {
+  console.warn('Firebase error, falling back to local', err);
+  renderAttractions();
+});
+
+// Mark today's tab
+function markTodayTab() {
+  const today = getTodayDate();
+  const day = getDayByDate(today);
+  if (day) {
+    document.getElementById('tab-today').classList.add('today-badge');
+    if (day.city === 'vegas') {
+      document.getElementById('tab-today').classList.add('vegas-tab');
+    }
+  }
+}
+
+// Init
+renderTodayContent();
+renderWeek();
+markTodayTab();
+showSection('today');
+</script>
+</body>
+</html>
