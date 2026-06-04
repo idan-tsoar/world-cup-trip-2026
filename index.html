@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏆 טיול 40 – ארה״ב 2026</title>
+<style>
+  :root {
+    --nyc: #1a3a5c;
+    --nyc-light: #e8f0f9;
+    --vegas: #5c1a3a;
+    --vegas-light: #f9e8f0;
+    --gold: #f0a500;
+    --green: #2ecc71;
+    --text: #1a1a2e;
+    --muted: #666;
+    --bg: #f5f5f0;
+    --white: #ffffff;
+    --radius: 16px;
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #5c1a3a 100%);
+    color: white;
+    padding: 24px 20px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .header h1 { font-size: 28px; font-weight: 800; position: relative; }
+  .header p { font-size: 14px; opacity: 0.8; margin-top: 4px; position: relative; }
+  .header .dates { font-size: 13px; opacity: 0.7; margin-top: 6px; position: relative; }
+  .map-btn-header {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.2); color: white;
+    text-decoration: none; padding: 8px 18px; border-radius: 50px;
+    font-size: 14px; font-weight: 700; margin-top: 14px;
+    position: relative; transition: background 0.2s;
+    border: 1px solid rgba(255,255,255,0.35);
+  }
+  .map-btn-header:hover { background: rgba(255,255,255,0.3); }
+
+  /* NAV TABS */
+  .nav-tabs {
+    display: flex;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: none;
+    padding: 12px 16px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    white-space: nowrap;
+    transition: all 0.2s;
+    border-bottom: 3px solid transparent;
+    font-family: inherit;
+  }
+  .tab-btn:hover { color: var(--text); background: #f5f5f5; }
+  .tab-btn.active { color: var(--nyc); border-bottom-color: var(--nyc); }
+  .tab-btn.vegas-tab.active { color: var(--vegas); border-bottom-color: var(--vegas); }
+  .tab-btn.today-badge::after {
+    content: '●';
+    color: var(--green);
+    font-size: 8px;
+    margin-right: 4px;
+    vertical-align: super;
+  }
+
+  /* MAIN */
+  .main { max-width: 700px; margin: 0 auto; padding: 20px 16px 80px; }
+
+  /* SECTION */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* TODAY BANNER */
+  .today-banner {
+    background: linear-gradient(135deg, #1a3a5c, #2563a8);
+    color: white;
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .today-banner.vegas { background: linear-gradient(135deg, #5c1a3a, #a8254e); }
+  .today-banner h2 { font-size: 22px; font-weight: 800; }
+  .today-banner p { font-size: 14px; opacity: 0.85; margin-top: 4px; }
+
+  /* DAY CARD */
+  .day-card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .day-header {
+    padding: 16px 20px 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .day-header.nyc { border-right: 5px solid var(--nyc); }
+  .day-header.vegas { border-right: 5px solid var(--vegas); }
+  .day-header.philly { border-right: 5px solid #3a7c1a; }
+  .day-header.travel { border-right: 5px solid var(--gold); }
+  .day-date { font-size: 13px; color: var(--muted); }
+  .day-title { font-size: 17px; font-weight: 700; flex: 1; }
+  .day-city {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .city-nyc { background: var(--nyc-light); color: var(--nyc); }
+  .city-vegas { background: var(--vegas-light); color: var(--vegas); }
+  .city-philly { background: #e8f5e0; color: #2a6010; }
+  .city-travel { background: #fff8e0; color: #8a5a00; }
+  .day-toggle { font-size: 18px; color: var(--muted); transition: transform 0.3s; }
+  .day-card.open .day-toggle { transform: rotate(180deg); }
+
+  .day-body { display: none; padding: 8px 0 12px; }
+  .day-card.open .day-body { display: block; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding: 0 20px; }
+  .tl-item {
+    display: flex;
+    gap: 14px;
+    padding: 10px 0;
+    position: relative;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    right: 30px;
+    top: 28px;
+    bottom: -10px;
+    width: 2px;
+    background: #f0f0f0;
+  }
+  .tl-item:last-child::before { display: none; }
+  .tl-time {
+    min-width: 52px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+    text-align: left;
+    direction: ltr;
+    padding-top: 2px;
+  }
+  .tl-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .dot-game { background: #fff3cd; }
+  .dot-food { background: #d4edda; }
+  .dot-party { background: #f8d7da; }
+  .dot-move { background: #d1ecf1; }
+  .dot-explore { background: #e2d9f3; }
+  .dot-sleep { background: #f0f0f0; }
+  .tl-content { flex: 1; }
+  .tl-title { font-size: 15px; font-weight: 600; line-height: 1.3; }
+  .tl-note { font-size: 12px; color: var(--muted); margin-top: 3px; }
+  .tl-map-btn {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 11px; color: #1a73e8; text-decoration: none;
+    margin-top: 5px; font-weight: 600;
+    background: #e8f0fe; padding: 3px 9px; border-radius: 10px;
+  }
+  .tl-map-btn:hover { background: #d2e3fc; }
+  .tl-tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+  .tag-game { background: #fff3cd; color: #856404; }
+  .tag-party { background: #f8d7da; color: #842029; }
+  .tag-must { background: #cfe2ff; color: #084298; }
+
+  /* WEEK VIEW */
+  .week-grid { display: grid; gap: 10px; }
+  .week-item {
+    background: white;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .week-item:hover { transform: translateX(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+  .week-item.is-today { border: 2px solid var(--green); }
+  .week-dot {
+    width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0;
+  }
+  .w-nyc { background: var(--nyc); }
+  .w-vegas { background: var(--vegas); }
+  .w-philly { background: #3a7c1a; }
+  .w-travel { background: var(--gold); }
+  .week-info { flex: 1; }
+  .week-date { font-size: 12px; color: var(--muted); }
+  .week-title { font-size: 15px; font-weight: 600; }
+  .week-highlights { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .today-badge-text {
+    font-size: 11px; font-weight: 700; color: var(--green);
+    background: #e8f5e0; padding: 3px 8px; border-radius: 10px;
+  }
+
+  /* ATTRACTIONS */
+  .attractions-section { }
+  .attr-city { margin-bottom: 24px; }
+  .attr-city-title {
+    font-size: 16px; font-weight: 800; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .attr-grid { display: grid; gap: 8px; }
+  .attr-item {
+    background: white;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .attr-icon { font-size: 22px; }
+  .attr-name { font-size: 15px; font-weight: 600; flex: 1; }
+  .attr-type { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .attr-check {
+    width: 24px; height: 24px; border-radius: 50%;
+    border: 2px solid #ddd; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; transition: all 0.2s;
+  }
+  .attr-check.done { background: var(--green); border-color: var(--green); color: white; }
+
+  /* FLOATING TODAY BTN */
+  .fab {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #1a3a5c, #5c1a3a);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    font-family: inherit;
+    transition: transform 0.2s;
+  }
+  .fab:hover { transform: translateX(-50%) scale(1.05); }
+
+  /* EMPTY STATE */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--muted);
+  }
+  .empty-state .big { font-size: 60px; margin-bottom: 16px; }
+  .empty-state h3 { font-size: 20px; font-weight: 700; color: var(--text); }
+  .empty-state p { font-size: 14px; margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🏆 טיול 40 – ארה״ב 2026</h1>
+  <p>5 חברים • מונדיאל • הרפתקה</p>
+  <div class="dates">12–22 יוני 2026 • ניו יורק + לאס וגאס</div>
+  <div style="position:relative;margin-top:6px;">
+    <a class="map-btn-header" href="https://maps.app.goo.gl/Qi8pfTUKFNR1qdYd9" target="_blank">
+      🗺️ פתח את המפה המלאה
+    </a>
+  </div>
+</div>
+
+<div class="nav-tabs" id="navTabs">
+  <button class="tab-btn" onclick="showSection('today')" id="tab-today">היום 📍</button>
+  <button class="tab-btn" onclick="showSection('week')" id="tab-week">כל הלוז</button>
+  <button class="tab-btn" onclick="showSection('attractions')" id="tab-attractions">💡 אטרקציות</button>
+</div>
+
+<div class="main">
+
+  <!-- TODAY SECTION -->
+  <div class="section" id="section-today">
+    <div id="today-content"></div>
+  </div>
+
+  <!-- WEEK SECTION -->
+  <div class="section" id="section-week">
+    <div class="week-grid" id="week-grid"></div>
+  </div>
+
+  <!-- ATTRACTIONS SECTION -->
+  <div class="section" id="section-attractions">
+    <div class="attractions-section">
+      <div class="attr-city">
+        <div class="attr-city-title">
+          <span style="width:14px;height:14px;border-radius:50%;background:var(--nyc);display:inline-block;"></span>
+          🗽 ניו יורק
+        </div>
+        <div class="attr-grid" id="attr-nyc"></div>
+      </div>
+      <div class="attr-city">
+        <div class="attr-city-title">
+          <span style="width:14px;height:14px;border-radius:50%;background:var(--vegas);display:inline-block;"></span>
+          🎰 לאס וגאס
+        </div>
+        <div class="attr-grid" id="attr-vegas"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<button class="fab" onclick="showSection('today')">📍 היום שלנו</button>
+
+<script>
+const DAYS = [
+  {
+    date: '2026-06-12',
+    display: '12.6 • שישי',
+    title: 'הגעה לניו יורק! ✈️',
+    city: 'nyc',
+    cityLabel: 'ניו יורק',
+    highlights: 'הגעה • Rockefeller • Wolfgang\'s Steakhouse • Rooftop',
+    items: [
+      { time: '05:30', icon: '🚕', dot: 'move', title: 'הגעה – מונית מנמל התעופה', note: 'The Fifty Sonesta Hotel – 155 E 50th St', mapUrl: 'https://www.google.com/maps/search/?api=1&query=The+Fifty+Sonesta+Hotel+155+E+50th+St+New+York' },
+      { time: '09:00', icon: '🏨', dot: 'sleep', title: 'The Fifty Sonesta Hotel – התמקמות', note: 'Gregorys Coffee | Rockefeller Center | Bryant Park | Grand Central', mapUrl: 'https://www.google.com/maps/search/?api=1&query=The+Fifty+Sonesta+Hotel+155+E+50th+St+New+York' },
+      { time: '15:00', icon: '⚽', dot: 'game', title: 'SPIN – Ping Pong Bar', note: '1626 Broadway', tag: 'game', tagLabel: '🇧🇦 בוסניה vs קנדה 15:00', mapUrl: 'https://www.google.com/maps/place/SPIN+New+York+Flatiron/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c25e53d445199b:0x643dafa6695c23a4!8m2!3d40.7402964!4d-73.9869661!16s%2Fg%2F1tlnfc2y' },
+      { time: '17:30', icon: '🏟️', dot: 'game', title: 'FAN ZONE – Rockefeller Center + Telemundo Fan Village', note: 'פריאגוואי vs ארהב 09:00', mapUrl: 'https://www.google.com/maps/place/Rockefeller+Center/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c258fecf664df5:0x33d224a0d5dacca2!8m2!3d40.7587402!4d-73.9786736!16zL20vMDE2M2Zm' },
+      { time: '20:30', icon: '🥩', dot: 'food', title: 'Wolfgang\'s Steakhouse', note: 'ארוחת ערב', tag: 'must', tagLabel: '⭐ Must Do', mapUrl: "https://www.google.com/maps/place/Wolfgang's+Steakhouse+-+Park+Avenue+New+York+City/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c2590793d5e1cb:0xd689287d3cdf4955!8m2!3d40.7466662!4d-73.9819629!16s%2Fg%2F1w0r0v02" },
+      { time: '22:30', icon: '🍸', dot: 'party', title: 'The Skylark NYC Rooftop', note: 'theskylarknyc.com', mapUrl: 'https://www.google.com/maps/place/The+Skylark+-+Rooftop+Bar/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c259ab62c9c3b5:0xb492fc9c0041218a!8m2!3d40.7541889!4d-73.9888567!16s%2Fg%2F1ydpvcgyg' },
+      { time: '23:30', icon: '🎉', dot: 'party', title: 'PHD Terrace Rooftop Party', note: '', mapUrl: 'https://www.google.com/maps/place/PHD+Terrace+at+Dream+Midtown/@38.4988451,-105.116458,5z/data=!3m1!5s0x89c258f81b907975:0x64dca8536077bf10!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c258f81cdda661:0xbde4c6bf015603e!8m2!3d40.764429!4d-73.9819377' },
+    ]
+  },
+  {
+    date: '2026-06-13',
+    display: '13.6 • שבת',
+    title: 'ברוקלין ויליאמסבורג 🌉',
+    city: 'nyc',
+    cityLabel: 'ניו יורק',
+    highlights: 'חדר כושר • Smorgasburg • Brooklyn Bridge Park • Le Bain',
+    items: [
+      { time: '08:30', icon: '💪', dot: 'explore', title: 'חדר כושר לרציניים', note: 'Crunch Fitness – להירשם מראש', mapUrl: 'https://www.google.com/maps/place/Crunch+Fitness+-+Midtown+East/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c259533844dd0b:0x698d635c9d77f7ca!8m2!3d40.7549187!4d-73.9733077!16s%2Fg%2F11ht1vh70l' },
+      { time: '11:00', icon: '🍔', dot: 'food', title: 'Smorgasburg – יריד אוכל ויליאמסבורג', note: 'Marsha P. Johnson State Park, 90 Kent Ave, Brooklyn', mapUrl: 'https://www.google.com/maps/place/Smorgasburg+Williamsburg/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c25967b1b8e0f7:0x927a439e1c9c3b8c!8m2!3d40.7210981!4d-73.9625824!16s%2Fg%2F12cpk5jv3' },
+      { time: '13:00', icon: '🚶', dot: 'explore', title: 'ויליאמסבורג – Bedford Ave', note: '', map: 'Bedford Ave Williamsburg Brooklyn' },
+      { time: '15:00', icon: '🌉', dot: 'explore', title: 'Brooklyn Bridge Park', note: 'FAN ZONE בפארק', map: 'Brooklyn Bridge Park' },
+      { time: '15:00', icon: '🎊', dot: 'party', title: 'Day Party – Mercer', note: 'posh.vip/e/mercer-day-party', tag: 'party', tagLabel: '🎵 מסיבת צהריים' },
+      { time: '18:00', icon: '⚽', dot: 'game', title: 'Berry Park BK', note: 'berryparkbk.com', tag: 'game', tagLabel: '🇲🇦 מרוקו vs ברזיל 18:00', map: 'Berry Park Brooklyn' },
+      { time: '21:00', icon: '🌃', dot: 'party', title: 'Marquee Skydeck / Le Bain', note: 'lebainnewyork.com', map: 'Le Bain Standard Hotel New York' },
+    ]
+  },
+  {
+    date: '2026-06-14',
+    display: '14.6 • ראשון',
+    title: 'פילדלפיה 🔔 + משחק!',
+    city: 'philly',
+    cityLabel: 'פילדלפיה',
+    highlights: 'פעמון העצמאות • מדרגות רוקי • משחק באיצטדיון',
+    items: [
+      { time: '09:30', icon: '🚆', dot: 'move', title: 'נסיעה לפילדלפיה', note: 'לסגור כרטיסי רכבת', tag: 'must', tagLabel: '🎫 לסגור', map: 'Philadelphia 30th Street Station' },
+      { time: '11:30', icon: '🔔', dot: 'explore', title: 'פעמון העצמאות + מדרגות רוקי', note: 'אטרקציות בפילדלפיה', mapUrl: 'https://www.google.com/maps/place/Independence+Hall/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c6c8836b1cc977:0x148a1e67397d6ea9!8m2!3d39.9488806!4d-75.1500349!16s%2Fg%2F1wnf1_nj' },
+      { time: '13:30', icon: '🔥', dot: 'food', title: 'ארוחת צהריים – על האש אצל בלאו', note: 'איזור המשחק שלנו' },
+      { time: '19:00', icon: '🏟️', dot: 'game', title: 'משחק באיצטדיון – Lincoln Financial Field', note: '', tag: 'game', tagLabel: '🇨🇮 חוף השנהב vs אקוודור 19:00', mapUrl: 'https://www.google.com/maps/place/Philadelphia+Stadium/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c6c7a9e03add31:0xf4050036d4293709!8m2!3d39.9014189!4d-75.1675992!16zL20vMDFsYzhw' },
+      { time: '21:55', icon: '🚆', dot: 'move', title: 'רכבת חזרה לניו יורק', note: 'לסגור כרטיסים', tag: 'must', tagLabel: '🎫 לסגור' },
+    ]
+  },
+  {
+    date: '2026-06-15',
+    display: '15.6 • שני',
+    title: 'High Line & Chelsea 🌿',
+    city: 'nyc',
+    cityLabel: 'ניו יורק',
+    highlights: 'High Line • Little Island • Chelsea Market • COTE Korean Steakhouse',
+    items: [
+      { time: '08:30', icon: '☕', dot: 'food', title: 'ארוחת בוקר – Little Collins', note: '708 3rd Ave, New York', map: 'Little Collins 708 3rd Ave New York' },
+      { time: '10:00', icon: '🌿', dot: 'explore', title: 'High Line', note: 'מ-Gansevoort St (Chelsea)', map: 'High Line Park New York' },
+      { time: '12:00', icon: '🚢', dot: 'explore', title: 'Hudson River Waterfront / Little Island', note: '', map: 'Little Island NYC Hudson River' },
+      { time: '13:00', icon: '🛒', dot: 'food', title: 'Chelsea Market', note: 'אוכל + קניות', map: 'Chelsea Market New York' },
+      { time: '15:00', icon: '⚽', dot: 'game', title: 'Houston Hall', note: '', tag: 'game', tagLabel: '🇧🇪 בלגיה vs מצרים 15:00', map: 'Houston Hall NYC' },
+      { time: '17:30', icon: '🛍️', dot: 'explore', title: 'קניות – רחוב 34 / חמישית', note: '', map: '5th Avenue 34th Street New York shopping' },
+      { time: '21:30', icon: '🥩', dot: 'food', title: 'COTE Korean Steakhouse – Flatiron', note: '16 W 22nd St | +12124017886', tag: 'must', tagLabel: '⭐ Must Do', mapUrl: 'https://www.google.com/maps/place/COTE+Flatiron/@11.5048672,-101.5173342,3.75z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c259a384775443:0x4ad3dc8a6c30ce40!8m2!3d40.7413041!4d-73.9912527!16s%2Fg%2F11c7t448dr' },
+    ]
+  },
+  {
+    date: '2026-06-16',
+    display: '16.6 • שלישי',
+    title: 'ניו ג\'רזי + גמר NBA 🏀',
+    city: 'nyc',
+    cityLabel: 'ניו ג\'רזי',
+    highlights: 'משחק צרפת • Sunset 230 Rooftop • גמר NBA • 1 OAK',
+    items: [
+      { time: '08:30', icon: '☕', dot: 'food', title: 'ארוחת בוקר', note: 'שאטל – עידן שילם $100' },
+      { time: '11:00', icon: '🚌', dot: 'move', title: 'שאטל לניו ג\'רזי', note: 'עידן שילם $100 | לסגור', tag: 'must', tagLabel: '🎫 לסגור' },
+      { time: '15:00', icon: '🏟️', dot: 'game', title: 'משחק באיצטדיון!', note: '', tag: 'game', tagLabel: '🇫🇷 צרפת vs סנגל 15:00', mapUrl: 'https://www.google.com/maps/place/MetLife+Stadium/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c2f861ad5902bf:0x8184280d31051734!8m2!3d40.8135064!4d-74.074457!16zL20vMGRua3Bo' },
+      { time: '18:00', icon: '🌅', dot: 'explore', title: 'Sunset 230 Fifth Rooftop Bar', note: '230 Fifth Ave (27th & 5th)', map: '230 Fifth Rooftop Bar New York' },
+      { time: '20:30', icon: '🏀', dot: 'game', title: 'NBA FINALS – Knicks vs Spurs – משחק 6!', note: 'לצפות בפאב', tag: 'game', tagLabel: '🏀 NBA Finals' },
+      { time: '21:00', icon: '⚽', dot: 'game', title: 'ארגנטינה vs אלג\'יריה', note: '', tag: 'game', tagLabel: '⚽ 21:00' },
+      { time: '23:00', icon: '🎵', dot: 'party', title: '1 OAK – Chelsea', note: '453 W 17th St | Hip-Hop, R&B', tag: 'party', tagLabel: '🎵 מועדון' },
+    ]
+  },
+  {
+    date: '2026-06-17',
+    display: '17.6 • רביעי',
+    title: 'טיסה לוגאס + Sphere! 🎰',
+    city: 'travel',
+    cityLabel: 'מעבר לוגאס',
+    highlights: 'טיסה לוגאס 11:00 • Sphere 20:00 • ENCORE Pool Party 23:00',
+    items: [
+      { time: '11:00', icon: '✈️', dot: 'move', title: 'טיסה לוגאס', note: 'בוקר – מגיעים למלון' },
+      { time: '13:00', icon: '⚽', dot: 'game', title: 'בר לצפות', note: '', tag: 'game', tagLabel: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 אנגליה vs קרואטיה 13:00' },
+      { time: '14:00', icon: '🏨', dot: 'sleep', title: 'הגעה למלון + סריקה :)', note: '' },
+      { time: '20:00', icon: '🌐', dot: 'explore', title: 'SPHERE', note: 'שולם! 🎟️', tag: 'must', tagLabel: '✅ שולם', mapUrl: 'https://www.google.com/maps/place/Sphere/@36.121217,-134.6737591,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x80c8c582817d8b43:0x42c18a9883e056ef!8m2!3d36.121217!4d-115.1620404!16s%2Fg%2F11ff53mp5s' },
+      { time: '23:00', icon: '🎉', dot: 'party', title: 'ENCORE Pool Party – Sullivan King & Valentino Khan', note: 'wynnsocial.com | לסגור שולחן', tag: 'must', tagLabel: '🎫 לסגור שולחן', map: 'Encore Beach Club Las Vegas' },
+    ]
+  },
+  {
+    date: '2026-06-18',
+    display: '18.6 • חמישי',
+    title: 'יום בריכה + וגאס 🎲',
+    city: 'vegas',
+    cityLabel: 'לאס וגאס',
+    highlights: 'ARIA Pool Party • Old Strip • WYNN SW מסעדה • מסיבה',
+    items: [
+      { time: '09:00', icon: '🍳', dot: 'food', title: 'ארוחת בוקר במלון', note: '' },
+      { time: '11:30', icon: '🏊', dot: 'party', title: 'ARIA Pool Party', note: 'DJ Shr3d – לסגור שולחן', tag: 'must', tagLabel: '🎫 לסגור שולחן', map: 'ARIA Hotel Las Vegas Pool' },
+      { time: '15:00', icon: '⚽', dot: 'game', title: 'צפייה בבר', note: '', tag: 'game', tagLabel: '🇨🇦 קנדה vs שווייץ 15:00' },
+      { time: '17:00', icon: '🚶', dot: 'explore', title: 'Old Strip – Fremont Street', note: 'סיור ברחוב הוותיק', map: 'Fremont Street Las Vegas' },
+      { time: '21:30', icon: '🍽️', dot: 'food', title: 'מסעדה – WYNN SW', note: 'הזמנה נדרשת', map: 'SW Steakhouse Wynn Las Vegas' },
+      { time: '23:30', icon: '🎉', dot: 'party', title: 'מסיבה', note: '' },
+    ]
+  },
+  {
+    date: '2026-06-19',
+    display: '19.6 • שישי',
+    title: 'TAO Beach + OMNIA 🌊',
+    city: 'vegas',
+    cityLabel: 'לאס וגאס',
+    highlights: 'TAO Beach Dayclub • קניות אאוטלט • OMNIA – Steve Aoki',
+    items: [
+      { time: '11:00', icon: '🏖️', dot: 'party', title: 'TAO Beach Dayclub – The Venetian', note: 'Vandelux DL SET | לקנות כרטיסים', tag: 'must', tagLabel: '🎫 לקנות', map: 'TAO Beach Dayclub The Venetian Las Vegas' },
+      { time: '15:00', icon: '🛍️', dot: 'explore', title: 'קניות – OUTLETS', note: '', mapUrl: 'https://www.google.com/maps/place/Las+Vegas+North+Premium+Outlets/@36.1636508,-134.669468,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x80c8c396eaebca97:0xe531334800dea520!8m2!3d36.1636508!4d-115.1577492!16s%2Fm%2F0cz8gzk' },
+      { time: '15:00', icon: '⚽', dot: 'game', title: 'ארה"ב vs אוסטרליה', note: '', tag: 'game', tagLabel: '🇺🇸 15:00' },
+      { time: '23:00', icon: '🎵', dot: 'party', title: 'OMNIA – Caesars Palace', note: 'DJ Steve Aoki | לקנות כרטיסים', tag: 'party', tagLabel: '🎫 לקנות', map: 'OMNIA Nightclub Caesars Palace Las Vegas' },
+    ]
+  },
+  {
+    date: '2026-06-20',
+    display: '20.6 • שבת',
+    title: 'LIV Beach + XS 🎶',
+    city: 'vegas',
+    cityLabel: 'לאס וגאס',
+    highlights: 'LIV Beach – DJ Tiesto • XS מועדון לילה',
+    items: [
+      { time: '10:00', icon: '⚽', dot: 'game', title: 'הולנד vs שבדיה', note: '', tag: 'game', tagLabel: '🇳🇱 10:00' },
+      { time: '12:00', icon: '🏖️', dot: 'party', title: 'LIV Beach Party – DJ TIESTO', note: 'לקנות כרטיסים | livnightclub.com', tag: 'must', tagLabel: '🎫 לקנות', map: 'LIV Beach Las Vegas' },
+      { time: '13:00', icon: '⚽', dot: 'game', title: 'גרמניה vs חוף השנהב', note: '', tag: 'game', tagLabel: '🇩🇪 13:00' },
+      { time: '23:00', icon: '🎵', dot: 'party', title: 'XS מועדון – WYNN', note: 'HUGEL | לקנות כרטיסים', tag: 'party', tagLabel: '🎫 לקנות', map: 'XS Nightclub Wynn Las Vegas' },
+    ]
+  },
+  {
+    date: '2026-06-21',
+    display: '21.6 • ראשון',
+    title: 'יום חופשי + טיסה חזרה ✈️',
+    city: 'travel',
+    cityLabel: 'מעבר',
+    highlights: 'חגיגה למושיקו עם קובי • טיסה לניו יורק 23:30',
+    items: [
+      { time: '12:00', icon: '🎂', dot: 'explore', title: 'ירידה לאגם – חגיגה למושיקו עם קובי', note: '' },
+      { time: '20:00', icon: '🚗', dot: 'move', title: 'יציאה לשדה התעופה', note: '' },
+      { time: '23:30', icon: '✈️', dot: 'move', title: 'טיסה לניו יורק', note: '' },
+    ]
+  },
+  {
+    date: '2026-06-22',
+    display: '22.6 • שני',
+    title: 'חזרה הביתה 🏠',
+    city: 'travel',
+    cityLabel: 'ניו יורק',
+    highlights: 'הגעה לניו יורק 08:00 • טיסה חזור 18:55',
+    items: [
+      { time: '08:00', icon: '🛬', dot: 'move', title: 'הגעה לניו יורק', note: '' },
+      { time: '15:30', icon: '🚗', dot: 'move', title: 'הגעה לשדה התעופה', note: '' },
+      { time: '18:55', icon: '✈️', dot: 'move', title: 'טיסה חזור הביתה', note: '' },
+    ]
+  },
+];
+
+const NYC_ATTRACTIONS = [
+  { icon: '🌳', name: 'סנטרל פארק', type: 'פארק' },
+  { icon: '🏘️', name: 'East Village', type: 'שכונה' },
+  { icon: '✨', name: 'טיימס סקוור', type: 'אטרקציה' },
+  { icon: '🗼', name: 'The Rock – תצפית Rockefeller', type: 'תצפית' },
+  { icon: '🥪', name: 'Katz\'s Deli', type: 'אוכל' },
+  { icon: '🍕', name: 'פיצה ליד טיימס סקוור', type: 'אוכל' },
+  { icon: '🛍️', name: 'SoHo', type: 'קניות' },
+  { icon: '⚽', name: 'FIFA Museum – 50 Rockefeller Plaza', type: 'מוזיאון' },
+  { icon: '🏛️', name: 'Washington Square Park', type: 'פארק' },
+  { icon: '🍪', name: 'עוגיות לביין', type: 'קינוח' },
+  { icon: '🍕', name: 'L\'industrie Pizzeria', type: 'אוכל-פיצה' },
+  { icon: '🍦', name: 'VENCHI גלידרייה', type: 'גלידרייה' },
+  { icon: '🌆', name: 'קולמבוס סירקל ROOFTOP', type: 'ROOFTOP' },
+  { icon: '⛵', name: 'Boat Basin – והנהר 80', type: 'אטרקציה' },
+  { icon: '🥩', name: 'The86 – מסעדת סטייקים', type: 'מסעדה' },
+];
+
+const VEGAS_ATTRACTIONS = [
+  { icon: '🛍️', name: 'אאוטלט', type: 'קניות' },
+  { icon: '🎭', name: 'הצגה', type: 'בידור' },
+  { icon: '🏊', name: 'Encore Beach Club – מסיבת בריכה', type: 'מסיבת בריכה' },
+  { icon: '🏊', name: 'Wet Republic ב-MGM – מסיבת בריכה', type: 'מסיבת בריכה' },
+  { icon: '🎵', name: 'XS מועדון לילה', type: 'מועדון' },
+  { icon: '🍜', name: 'MIZUMI – מסעדה אסייאתית', type: 'מסעדה' },
+  { icon: '🌊', name: 'הובר דאם – יום טיול', type: 'יום טיול' },
+  { icon: '🎰', name: 'הסטריפ הישן (Fremont)', type: 'אטרקציה' },
+];
+
+// --- UTILS ---
+function getTodayDate() {
+  const now = new Date();
+  return now.toISOString().split('T')[0];
+}
+
+function getDayByDate(date) {
+  return DAYS.find(d => d.date === date);
+}
+
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('section-' + id).classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+}
+
+function renderTodayContent() {
+  const today = getTodayDate();
+  const day = getDayByDate(today);
+  const container = document.getElementById('today-content');
+
+  if (!day) {
+    // Check if trip hasn't started or has ended
+    const start = '2026-06-12';
+    const end = '2026-06-22';
+    if (today < start) {
+      const days = Math.ceil((new Date(start) - new Date(today)) / 86400000);
+      container.innerHTML = `
+        <div class="empty-state">
+          <div class="big">✈️</div>
+          <h3>הטיול מתחיל בעוד ${days} ימים!</h3>
+          <p>12 יוני 2026 – ניו יורק מחכה לנו</p>
+        </div>`;
+    } else {
+      container.innerHTML = `
+        <div class="empty-state">
+          <div class="big">🏠</div>
+          <h3>הטיול הסתיים</h3>
+          <p>איזה כיף היה! 🎉</p>
+        </div>`;
+    }
+    return;
+  }
+
+  const isVegas = day.city === 'vegas' || day.city === 'travel' && day.date >= '2026-06-17';
+  const bannerClass = (day.city === 'vegas') ? 'today-banner vegas' : 'today-banner';
+
+  let html = `
+    <div class="${bannerClass}">
+      <h2>${day.title}</h2>
+      <p>${day.display} • ${day.cityLabel}</p>
+    </div>
+    <div class="day-card open" style="margin-bottom:0">
+      <div class="day-body" style="display:block">
+        ${renderTimeline(day.items)}
+      </div>
+    </div>`;
+  container.innerHTML = html;
+}
+
+function renderTimeline(items) {
+  return `<div class="timeline">${items.map(item => {
+    const mapUrl = item.mapUrl || (item.map
+      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.map)}`
+      : null);
+    return `
+    <div class="tl-item">
+      <div class="tl-time">${item.time || ''}</div>
+      <div class="tl-dot dot-${item.dot}">${item.icon}</div>
+      <div class="tl-content">
+        <div class="tl-title">${item.title}</div>
+        ${item.note ? `<div class="tl-note">${item.note}</div>` : ''}
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;">
+          ${item.tag ? `<span class="tl-tag tag-${item.tag}">${item.tagLabel}</span>` : ''}
+          ${mapUrl ? `<a class="tl-map-btn" href="${mapUrl}" target="_blank">📍 מפה</a>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }).join('')}</div>`;
+}
+
+function renderWeek() {
+  const today = getTodayDate();
+  const grid = document.getElementById('week-grid');
+  grid.innerHTML = DAYS.map((day, i) => {
+    const isToday = day.date === today;
+    const colorClass = day.city === 'vegas' ? 'w-vegas' : day.city === 'nyc' ? 'w-nyc' : day.city === 'philly' ? 'w-philly' : 'w-travel';
+    return `
+      <div class="week-item${isToday ? ' is-today' : ''}" onclick="openDayModal(${i})">
+        <div class="week-dot ${colorClass}"></div>
+        <div class="week-info">
+          <div class="week-date">${day.display} • ${day.cityLabel}</div>
+          <div class="week-title">${day.title}</div>
+          <div class="week-highlights">${day.highlights}</div>
+        </div>
+        ${isToday ? '<div class="today-badge-text">היום</div>' : '<div style="color:#ccc;font-size:18px;">›</div>'}
+      </div>`;
+  }).join('');
+}
+
+let modalDay = null;
+function openDayModal(idx) {
+  const day = DAYS[idx];
+  // Build an inline expanded card below
+  const existing = document.getElementById('modal-overlay');
+  if (existing) existing.remove();
+
+  const overlay = document.createElement('div');
+  overlay.id = 'modal-overlay';
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;display:flex;align-items:flex-end;';
+  const isVegas = day.city === 'vegas';
+  overlay.innerHTML = `
+    <div style="background:white;width:100%;max-height:85vh;overflow-y:auto;border-radius:20px 20px 0 0;padding:20px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <div style="flex:1">
+          <div style="font-size:13px;color:#888;">${day.display} • ${day.cityLabel}</div>
+          <div style="font-size:20px;font-weight:800;">${day.title}</div>
+        </div>
+        <button onclick="document.getElementById('modal-overlay').remove()" style="border:none;background:#f0f0f0;width:36px;height:36px;border-radius:50%;font-size:18px;cursor:pointer;">✕</button>
+      </div>
+      ${renderTimeline(day.items)}
+    </div>`;
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+}
+
+function renderAttractions() {
+  const stored = JSON.parse(localStorage.getItem('attr_done') || '{}');
+
+  function renderList(items, containerId, prefix) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = items.map((item, i) => {
+      const key = prefix + i;
+      const done = stored[key];
+      return `
+        <div class="attr-item">
+          <div class="attr-icon">${item.icon}</div>
+          <div style="flex:1">
+            <div class="attr-name">${item.name}</div>
+            <div class="attr-type">${item.type}</div>
+          </div>
+          <div class="attr-check${done ? ' done' : ''}" onclick="toggleAttr('${key}', this)">${done ? '✓' : ''}</div>
+        </div>`;
+    }).join('');
+  }
+
+  renderList(NYC_ATTRACTIONS, 'attr-nyc', 'nyc_');
+  renderList(VEGAS_ATTRACTIONS, 'attr-vegas', 'vegas_');
+}
+
+function toggleAttr(key, el) {
+  const stored = JSON.parse(localStorage.getItem('attr_done') || '{}');
+  if (stored[key]) {
+    delete stored[key];
+    el.classList.remove('done');
+    el.textContent = '';
+  } else {
+    stored[key] = true;
+    el.classList.add('done');
+    el.textContent = '✓';
+  }
+  localStorage.setItem('attr_done', JSON.stringify(stored));
+}
+
+// Mark today's tab
+function markTodayTab() {
+  const today = getTodayDate();
+  const day = getDayByDate(today);
+  if (day) {
+    document.getElementById('tab-today').classList.add('today-badge');
+    if (day.city === 'vegas') {
+      document.getElementById('tab-today').classList.add('vegas-tab');
+    }
+  }
+}
+
+// Init
+renderTodayContent();
+renderWeek();
+renderAttractions();
+markTodayTab();
+showSection('today');
+</script>
+</body>
+</html>
