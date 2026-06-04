@@ -376,13 +376,13 @@ const DAYS = [
     cityLabel: 'ניו יורק',
     highlights: 'הגעה • Rockefeller • Wolfgang\'s Steakhouse • Rooftop',
     items: [
-      { time: '05:30', icon: '🚕', dot: 'move', title: 'הגעה – מונית מנמל התעופה', note: 'The Fifty Sonesta Hotel – 155 E 50th St', mapUrl: 'https://www.google.com/maps/search/?api=1&query=The+Fifty+Sonesta+Hotel+155+E+50th+St+New+York' },
-      { time: '09:00', icon: '🏨', dot: 'sleep', title: 'The Fifty Sonesta Hotel – התמקמות', note: 'Gregorys Coffee | Rockefeller Center | Bryant Park | Grand Central', mapUrl: 'https://www.google.com/maps/search/?api=1&query=The+Fifty+Sonesta+Hotel+155+E+50th+St+New+York' },
-      { time: '15:00', icon: '⚽', dot: 'game', title: 'SPIN – Ping Pong Bar', note: '1626 Broadway', tag: 'game', tagLabel: 'בוסניה vs קנדה 15:00', mapUrl: 'https://www.google.com/maps/place/SPIN+New+York+Flatiron/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c25e53d445199b:0x643dafa6695c23a4!8m2!3d40.7402964!4d-73.9869661!16s%2Fg%2F1tlnfc2y' },
-      { time: '17:30', icon: '🏟️', dot: 'game', title: 'FAN ZONE – Rockefeller Center + Telemundo Fan Village', note: 'פריאגוואי vs ארהב 09:00', mapUrl: 'https://www.google.com/maps/place/Rockefeller+Center/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c258fecf664df5:0x33d224a0d5dacca2!8m2!3d40.7587402!4d-73.9786736!16zL20vMDE2M2Zm' },
-      { time: '20:30', icon: '🥩', dot: 'food', title: 'Wolfgang\'s Steakhouse', note: 'ארוחת ערב', tag: 'must', tagLabel: '⭐ Must Do', mapUrl: "https://www.google.com/maps/place/Wolfgang's+Steakhouse+-+Park+Avenue+New+York+City/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c2590793d5e1cb:0xd689287d3cdf4955!8m2!3d40.7466662!4d-73.9819629!16s%2Fg%2F1w0r0v02" },
-      { time: '22:30', icon: '🍸', dot: 'party', title: 'The Skylark NYC Rooftop', note: 'theskylarknyc.com', mapUrl: 'https://www.google.com/maps/place/The+Skylark+-+Rooftop+Bar/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c259ab62c9c3b5:0xb492fc9c0041218a!8m2!3d40.7541889!4d-73.9888567!16s%2Fg%2F1ydpvcgyg' },
-      { time: '23:30', icon: '🎉', dot: 'party', title: 'PHD Terrace Rooftop Party', note: '', mapUrl: 'https://www.google.com/maps/place/PHD+Terrace+at+Dream+Midtown/@38.4988451,-105.116458,5z/data=!3m1!5s0x89c258f81b907975:0x64dca8536077bf10!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c258f81cdda661:0xbde4c6bf015603e!8m2!3d40.764429!4d-73.9819377' },
+      { time: '05:30', icon: '🚕', dot: 'move', title: 'הגעה – מונית מנמל התעופה', note: 'The Fifty Sonesta Hotel – 155 E 50th St', pin: 7, mapUrl: 'https://www.google.com/maps/search/?api=1&query=The+Fifty+Sonesta+Hotel+155+E+50th+St+New+York' },
+      { time: '09:00', icon: '🏨', dot: 'sleep', title: 'The Fifty Sonesta Hotel – התמקמות', note: 'Gregorys Coffee | Rockefeller Center | Bryant Park | Grand Central', pin: 1, mapUrl: 'https://www.google.com/maps/search/?api=1&query=The+Fifty+Sonesta+Hotel+155+E+50th+St+New+York' },
+      { time: '15:00', icon: '⚽', dot: 'game', title: 'SPIN – Ping Pong Bar', note: '1626 Broadway', tag: 'game', tagLabel: 'בוסניה vs קנדה 15:00', pin: 6, mapUrl: 'https://www.google.com/maps/place/SPIN+New+York+Flatiron/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c25e53d445199b:0x643dafa6695c23a4!8m2!3d40.7402964!4d-73.9869661!16s%2Fg%2F1tlnfc2y' },
+      { time: '17:30', icon: '🏟️', dot: 'game', title: 'FAN ZONE – Rockefeller Center + Telemundo Fan Village', note: 'פריאגוואי vs ארהב 09:00', pin: 2, mapUrl: 'https://www.google.com/maps/place/Rockefeller+Center/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c258fecf664df5:0x33d224a0d5dacca2!8m2!3d40.7587402!4d-73.9786736!16zL20vMDE2M2Zm' },
+      { time: '20:30', icon: '🥩', dot: 'food', title: 'Wolfgang\'s Steakhouse', note: 'ארוחת ערב', tag: 'must', tagLabel: '⭐ Must Do', pin: 8, mapUrl: "https://www.google.com/maps/place/Wolfgang's+Steakhouse+-+Park+Avenue+New+York+City/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c2590793d5e1cb:0xd689287d3cdf4955!8m2!3d40.7466662!4d-73.9819629!16s%2Fg%2F1w0r0v02" },
+      { time: '22:30', icon: '🍸', dot: 'party', title: 'The Skylark NYC Rooftop', note: 'theskylarknyc.com', pin: 9, mapUrl: 'https://www.google.com/maps/place/The+Skylark+-+Rooftop+Bar/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c259ab62c9c3b5:0xb492fc9c0041218a!8m2!3d40.7541889!4d-73.9888567!16s%2Fg%2F1ydpvcgyg' },
+      { time: '23:30', icon: '🎉', dot: 'party', title: 'PHD Terrace Rooftop Party', note: '', pin: 9, mapUrl: 'https://www.google.com/maps/place/PHD+Terrace+at+Dream+Midtown/@38.4988451,-105.116458,5z/data=!3m1!5s0x89c258f81b907975:0x64dca8536077bf10!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c258f81cdda661:0xbde4c6bf015603e!8m2!3d40.764429!4d-73.9819377' },
     ]
   },
   {
@@ -393,10 +393,10 @@ const DAYS = [
     cityLabel: 'ניו יורק',
     highlights: 'חדר כושר • Smorgasburg • Brooklyn Bridge Park • Le Bain',
     items: [
-      { time: '08:30', icon: '💪', dot: 'explore', title: 'חדר כושר לרציניים', note: 'Crunch Fitness – להירשם מראש', mapUrl: 'https://www.google.com/maps/place/Crunch+Fitness+-+Midtown+East/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c259533844dd0b:0x698d635c9d77f7ca!8m2!3d40.7549187!4d-73.9733077!16s%2Fg%2F11ht1vh70l' },
-      { time: '11:00', icon: '🍔', dot: 'food', title: 'Smorgasburg – יריד אוכל ויליאמסבורג', note: 'Marsha P. Johnson State Park, 90 Kent Ave, Brooklyn', mapUrl: 'https://www.google.com/maps/place/Smorgasburg+Williamsburg/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c25967b1b8e0f7:0x927a439e1c9c3b8c!8m2!3d40.7210981!4d-73.9625824!16s%2Fg%2F12cpk5jv3' },
+      { time: '08:30', icon: '💪', dot: 'explore', title: 'חדר כושר לרציניים', note: 'Crunch Fitness – להירשם מראש', pin: 10, mapUrl: 'https://www.google.com/maps/place/Crunch+Fitness+-+Midtown+East/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c259533844dd0b:0x698d635c9d77f7ca!8m2!3d40.7549187!4d-73.9733077!16s%2Fg%2F11ht1vh70l' },
+      { time: '11:00', icon: '🍔', dot: 'food', title: 'Smorgasburg – יריד אוכל ויליאמסבורג', note: 'Marsha P. Johnson State Park, 90 Kent Ave, Brooklyn', pin: 11, mapUrl: 'https://www.google.com/maps/place/Smorgasburg+Williamsburg/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c25967b1b8e0f7:0x927a439e1c9c3b8c!8m2!3d40.7210981!4d-73.9625824!16s%2Fg%2F12cpk5jv3' },
       { time: '13:00', icon: '🚶', dot: 'explore', title: 'ויליאמסבורג – Bedford Ave', note: '', map: 'Bedford Ave Williamsburg Brooklyn' },
-      { time: '15:00', icon: '🌉', dot: 'explore', title: 'Brooklyn Bridge Park', note: 'FAN ZONE בפארק', map: 'Brooklyn Bridge Park' },
+      { time: '15:00', icon: '🌉', dot: 'explore', title: 'Brooklyn Bridge Park', note: 'FAN ZONE בפארק', pin: 12, map: 'Brooklyn Bridge Park' },
       { time: '15:00', icon: '🎊', dot: 'party', title: 'Day Party – Mercer', note: 'posh.vip/e/mercer-day-party', tag: 'party', tagLabel: '🎵 מסיבת צהריים' },
       { time: '18:00', icon: '⚽', dot: 'game', title: 'Berry Park BK', note: 'berryparkbk.com', tag: 'game', tagLabel: 'מרוקו vs ברזיל 18:00', map: 'Berry Park Brooklyn' },
       { time: '21:00', icon: '🌃', dot: 'party', title: 'Marquee Skydeck / Le Bain', note: 'lebainnewyork.com', map: 'Le Bain Standard Hotel New York' },
@@ -410,10 +410,10 @@ const DAYS = [
     cityLabel: 'פילדלפיה',
     highlights: 'פעמון העצמאות • מדרגות רוקי • משחק באיצטדיון',
     items: [
-      { time: '09:30', icon: '🚆', dot: 'move', title: 'נסיעה לפילדלפיה', note: 'לסגור כרטיסי רכבת', tag: 'must', tagLabel: '🎫 לסגור', map: 'Philadelphia 30th Street Station' },
-      { time: '11:30', icon: '🔔', dot: 'explore', title: 'פעמון העצמאות + מדרגות רוקי', note: 'אטרקציות בפילדלפיה', mapUrl: 'https://www.google.com/maps/place/Independence+Hall/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c6c8836b1cc977:0x148a1e67397d6ea9!8m2!3d39.9488806!4d-75.1500349!16s%2Fg%2F1wnf1_nj' },
+      { time: '09:30', icon: '🚆', dot: 'move', title: 'נסיעה לפילדלפיה', note_SKIPת', tag: 'must', tagLabel: '🎫 לסגור', map: 'Philadelphia 30th Street Station' },
+      { time: '11:30', icon: '🔔', dot: 'explore', title: 'פעמון העצמאות + מדרגות רוקי', note: 'אטרקציות בפילדלפיה', pin: 13, mapUrl: 'https://www.google.com/maps/place/Independence+Hall/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c6c8836b1cc977:0x148a1e67397d6ea9!8m2!3d39.9488806!4d-75.1500349!16s%2Fg%2F1wnf1_nj' },
       { time: '13:30', icon: '🔥', dot: 'food', title: 'ארוחת צהריים – על האש אצל בלאו', note: 'איזור המשחק שלנו' },
-      { time: '19:00', icon: '🏟️', dot: 'game', title: 'משחק באיצטדיון – Lincoln Financial Field', note: '', tag: 'game', tagLabel: 'חוף השנהב vs אקוודור 19:00', mapUrl: 'https://www.google.com/maps/place/Philadelphia+Stadium/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c6c7a9e03add31:0xf4050036d4293709!8m2!3d39.9014189!4d-75.1675992!16zL20vMDFsYzhw' },
+      { time: '19:00', icon: '🏟️', dot: 'game', title: 'משחק באיצטדיון – Lincoln Financial Field', note: '', tag: 'game', tagLabel: 'חוף השנהב vs אקוודור 19:00', pin: 27, mapUrl: 'https://www.google.com/maps/place/Philadelphia+Stadium/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c6c7a9e03add31:0xf4050036d4293709!8m2!3d39.9014189!4d-75.1675992!16zL20vMDFsYzhw' },
       { time: '21:55', icon: '🚆', dot: 'move', title: 'רכבת חזרה לניו יורק', note: 'לסגור כרטיסים', tag: 'must', tagLabel: '🎫 לסגור' },
     ]
   },
@@ -431,7 +431,7 @@ const DAYS = [
       { time: '13:00', icon: '🛒', dot: 'food', title: 'Chelsea Market', note: 'אוכל + קניות', map: 'Chelsea Market New York' },
       { time: '15:00', icon: '⚽', dot: 'game', title: 'Houston Hall', note: '', tag: 'game', tagLabel: 'בלגיה vs מצרים 15:00', map: 'Houston Hall NYC' },
       { time: '17:30', icon: '🛍️', dot: 'explore', title: 'קניות – רחוב 34 / חמישית', note: '', map: '5th Avenue 34th Street New York shopping' },
-      { time: '21:30', icon: '🥩', dot: 'food', title: 'COTE Korean Steakhouse – Flatiron', note: '16 W 22nd St | +12124017886', tag: 'must', tagLabel: '⭐ Must Do', mapUrl: 'https://www.google.com/maps/place/COTE+Flatiron/@11.5048672,-101.5173342,3.75z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c259a384775443:0x4ad3dc8a6c30ce40!8m2!3d40.7413041!4d-73.9912527!16s%2Fg%2F11c7t448dr' },
+      { time: '21:30', icon: '🥩', dot: 'food', title: 'COTE Korean Steakhouse – Flatiron', note: '16 W 22nd St | +12124017886', tag: 'must', tagLabel: '⭐ Must Do', pin: 14, mapUrl: 'https://www.google.com/maps/place/COTE+Flatiron/@11.5048672,-101.5173342,3.75z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c259a384775443:0x4ad3dc8a6c30ce40!8m2!3d40.7413041!4d-73.9912527!16s%2Fg%2F11c7t448dr' },
     ]
   },
   {
@@ -444,7 +444,7 @@ const DAYS = [
     items: [
       { time: '08:30', icon: '☕', dot: 'food', title: 'ארוחת בוקר', note: 'שאטל – עידן שילם $100' },
       { time: '11:00', icon: '🚌', dot: 'move', title: 'שאטל לניו ג\'רזי', note: 'עידן שילם $100 | לסגור', tag: 'must', tagLabel: '🎫 לסגור' },
-      { time: '15:00', icon: '🏟️', dot: 'game', title: 'משחק באיצטדיון!', note: '', tag: 'game', tagLabel: 'צרפת vs סנגל 15:00', mapUrl: 'https://www.google.com/maps/place/MetLife+Stadium/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c2f861ad5902bf:0x8184280d31051734!8m2!3d40.8135064!4d-74.074457!16zL20vMGRua3Bo' },
+      { time: '15:00', icon: '🏟️', dot: 'game', title: 'משחק באיצטדיון!', note: '', tag: 'game', tagLabel: 'צרפת vs סנגל 15:00', pin: 15, mapUrl: 'https://www.google.com/maps/place/MetLife+Stadium/@38.4988451,-105.116458,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x89c2f861ad5902bf:0x8184280d31051734!8m2!3d40.8135064!4d-74.074457!16zL20vMGRua3Bo' },
       { time: '18:00', icon: '🌅', dot: 'explore', title: 'Sunset 230 Fifth Rooftop Bar', note: '230 Fifth Ave (27th & 5th)', map: '230 Fifth Rooftop Bar New York' },
       { time: '20:30', icon: '🏀', dot: 'game', title: 'NBA FINALS – Knicks vs Spurs – משחק 6!', note: 'לצפות בפאב', tag: 'game', tagLabel: '🏀 NBA Finals' },
       { time: '21:00', icon: '⚽', dot: 'game', title: 'ארגנטינה vs אלג\'יריה', note: '', tag: 'game', tagLabel: '⚽ 21:00' },
@@ -462,8 +462,8 @@ const DAYS = [
       { time: '11:00', icon: '✈️', dot: 'move', title: 'טיסה לוגאס', note: 'בוקר – מגיעים למלון' },
       { time: '13:00', icon: '⚽', dot: 'game', title: 'בר לצפות', note: '', tag: 'game', tagLabel: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 אנגליה vs קרואטיה 13:00' },
       { time: '14:00', icon: '🏨', dot: 'sleep', title: 'הגעה למלון + סריקה :)', note: '' },
-      { time: '20:00', icon: '🌐', dot: 'explore', title: 'SPHERE', note: 'שולם! 🎟️', tag: 'must', tagLabel: '✅ שולם', mapUrl: 'https://www.google.com/maps/place/Sphere/@36.121217,-134.6737591,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x80c8c582817d8b43:0x42c18a9883e056ef!8m2!3d36.121217!4d-115.1620404!16s%2Fg%2F11ff53mp5s' },
-      { time: '23:00', icon: '🎉', dot: 'party', title: 'ENCORE Pool Party – Sullivan King & Valentino Khan', note: 'wynnsocial.com | לסגור שולחן', tag: 'must', tagLabel: '🎫 לסגור שולחן', map: 'Encore Beach Club Las Vegas' },
+      { time: '20:00', icon: '🌐', dot: 'explore', title: 'SPHERE', note: 'שולם! 🎟️', tag: 'must', tagLabel: '✅ שולם', pin: 17, mapUrl: 'https://www.google.com/maps/place/Sphere/@36.121217,-134.6737591,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x80c8c582817d8b43:0x42c18a9883e056ef!8m2!3d36.121217!4d-115.1620404!16s%2Fg%2F11ff53mp5s' },
+      { time: '23:00', icon: '🎉', dot: 'party', title: 'ENCORE Pool Party – Sullivan King & Valentino Khan', note: 'wynnsocial.com | לסגור שולחן', tag: 'must', tagLabel: '🎫 לסגור שולחן', pin: 18, map: 'Encore Beach Club Las Vegas' },
     ]
   },
   {
@@ -475,11 +475,11 @@ const DAYS = [
     highlights: 'ARIA Pool Party • Old Strip • WYNN SW מסעדה • מסיבה',
     items: [
       { time: '09:00', icon: '🍳', dot: 'food', title: 'ארוחת בוקר במלון', note: '' },
-      { time: '11:30', icon: '🏊', dot: 'party', title: 'ARIA Pool Party', note: 'DJ Shr3d – לסגור שולחן', tag: 'must', tagLabel: '🎫 לסגור שולחן', map: 'ARIA Hotel Las Vegas Pool' },
+      { time: '11:30', icon: '🏊', dot: 'party', title: 'ARIA Pool Party', note: 'DJ Shr3d – לסגור שולחן', tag: 'must', tagLabel: '🎫 לסגור שולחן', pin: 19, map: 'ARIA Hotel Las Vegas Pool' },
       { time: '15:00', icon: '⚽', dot: 'game', title: 'צפייה בבר', note: '', tag: 'game', tagLabel: 'קנדה vs שווייץ 15:00' },
       { time: '17:00', icon: '🚶', dot: 'explore', title: 'Old Strip – Fremont Street', note: 'סיור ברחוב הוותיק', map: 'Fremont Street Las Vegas' },
       { time: '20:30', icon: '🏀', dot: 'game', title: 'צפייה בבר', note: '20:30 שעון ניו יורק', tag: 'game', tagLabel: '🏀 NBA Finals – גמר!' },
-      { time: '21:30', icon: '🍽️', dot: 'food', title: 'מסעדה – WYNN SW', note: 'הזמנה נדרשת', map: 'SW Steakhouse Wynn Las Vegas' },
+      { time: '21:30', icon: '🍽️', dot: 'food', title: 'מסעדה – WYNN SW', note: 'הזמנה נדרשת', pin: 20, map: 'SW Steakhouse Wynn Las Vegas' },
       { time: '23:30', icon: '🎉', dot: 'party', title: 'מסיבה', note: '' },
     ]
   },
@@ -491,11 +491,11 @@ const DAYS = [
     cityLabel: 'לאס וגאס',
     highlights: 'TAO Beach Dayclub • קניות אאוטלט • OMNIA – Steve Aoki',
     items: [
-      { time: '11:00', icon: '🏖️', dot: 'party', title: 'TAO Beach Dayclub – The Venetian', note: 'Vandelux DL SET | לקנות כרטיסים', tag: 'must', tagLabel: '🎫 לקנות', map: 'TAO Beach Dayclub The Venetian Las Vegas' },
-      { time: '15:00', icon: '🛍️', dot: 'explore', title: 'קניות – OUTLETS', note: '', mapUrl: 'https://www.google.com/maps/place/Las+Vegas+North+Premium+Outlets/@36.1636508,-134.669468,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x80c8c396eaebca97:0xe531334800dea520!8m2!3d36.1636508!4d-115.1577492!16s%2Fm%2F0cz8gzk' },
+      { time: '11:00', icon: '🏖️', dot: 'party', title: 'TAO Beach Dayclub – The Venetian', note: 'Vandelux DL SET | לקנות כרטיסים', tag: 'must', tagLabel: '🎫 לקנות', pin: 21, map: 'TAO Beach Dayclub The Venetian Las Vegas' },
+      { time: '15:00', icon: '🛍️', dot: 'explore', title: 'קניות – OUTLETS', note: '', pin: 22, mapUrl: 'https://www.google.com/maps/place/Las+Vegas+North+Premium+Outlets/@36.1636508,-134.669468,5z/data=!4m9!1m2!11m1!2sjljsWAJhfN8ISvwaBO-bzQ!3m5!1s0x80c8c396eaebca97:0xe531334800dea520!8m2!3d36.1636508!4d-115.1577492!16s%2Fm%2F0cz8gzk' },
       { time: '15:00', icon: '⚽', dot: 'game', title: 'ארה"ב vs אוסטרליה', note: '', tag: 'game', tagLabel: '15:00' },
 	  { time: '17:30', icon: '🏀', dot: 'game', title: 'צפייה בבר', note: '', tag: 'game', tagLabel: '🏀 NBA Finals – גמר משחק אחרון!' },
-      { time: '23:00', icon: '🎵', dot: 'party', title: 'OMNIA – Caesars Palace', note: 'DJ Steve Aoki | לקנות כרטיסים', tag: 'party', tagLabel: '🎫 לקנות', map: 'OMNIA Nightclub Caesars Palace Las Vegas' },
+      { time: '23:00', icon: '🎵', dot: 'party', title: 'OMNIA – Caesars Palace', note: 'DJ Steve Aoki | לקנות כרטיסים', tag: 'party', tagLabel: '🎫 לקנות', pin: 23, map: 'OMNIA Nightclub Caesars Palace Las Vegas' },
     ]
   },
   {
@@ -507,9 +507,9 @@ const DAYS = [
     highlights: 'LIV Beach – DJ Tiesto • XS מועדון לילה',
     items: [
       { time: '10:00', icon: '⚽', dot: 'game', title: 'הולנד vs שבדיה', note: '', tag: 'game', tagLabel: '10:00' },
-      { time: '12:00', icon: '🏖️', dot: 'party', title: 'LIV Beach Party – DJ TIESTO', note: 'לקנות כרטיסים | livnightclub.com', tag: 'must', tagLabel: '🎫 לקנות', map: 'LIV Beach Las Vegas' },
+      { time: '12:00', icon: '🏖️', dot: 'party', title: 'LIV Beach Party – DJ TIESTO', note: 'לקנות כרטיסים | livnightclub.com', tag: 'must', tagLabel: '🎫 לקנות', pin: 24, map: 'LIV Beach Las Vegas' },
       { time: '13:00', icon: '⚽', dot: 'game', title: 'גרמניה vs חוף השנהב', note: '', tag: 'game', tagLabel: '13:00' },
-      { time: '23:00', icon: '🎵', dot: 'party', title: 'XS מועדון – WYNN', note: 'HUGEL | לקנות כרטיסים', tag: 'party', tagLabel: '🎫 לקנות', map: 'XS Nightclub Wynn Las Vegas' },
+      { time: '23:00', icon: '🎵', dot: 'party', title: 'XS מועדון – WYNN', note: 'HUGEL | לקנות כרטיסים', tag: 'party', tagLabel: '🎫 לקנות', pin: 25, map: 'XS Nightclub Wynn Las Vegas' },
     ]
   },
   {
@@ -644,7 +644,7 @@ function renderTimeline(items) {
         ${item.note ? `<div class="tl-note">${item.note}</div>` : ''}
         <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;">
           ${item.tag ? `<span class="tl-tag tag-${item.tag}">${item.tagLabel}</span>` : ''}
-          ${mapUrl ? `<a class="tl-map-btn" href="${mapUrl}" target="_blank">📍 מפה</a>` : ''}
+          ${mapUrl ? `<a class="tl-map-btn" href="${mapUrl}" target="_blank">📍 ${item.pin ? '#'+item.pin+' ' : ''}מפה</a>` : ''}
         </div>
       </div>
     </div>`;
