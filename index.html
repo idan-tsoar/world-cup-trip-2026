@@ -574,8 +574,8 @@ const VEGAS_ATTRACTIONS = [
 
 // --- UTILS ---
 function getTodayDate() {
-  const now = new Date();
-  return now.toISOString().split('T')[0];
+  // Use US Eastern Time (NYC timezone) for the whole trip
+  return new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' });
 }
 
 function getDayByDate(date) {
